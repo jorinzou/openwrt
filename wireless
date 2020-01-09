@@ -1,0 +1,31 @@
+#/etc/config/wireless 文件
+config wifi-device 'radio0'
+	option type 'ralink'
+	option variant 'mt7628'
+	option country 'CN'
+	option hwmode '11bgn'
+	option htmode 'HT20'
+	option channel 'auto'
+	option disabled '0'
+
+#ap模式，相当于作为wifi路由器
+config wifi-iface 'ap'
+	option device 'radio0'
+	option mode 'ap'
+	option network 'lan'
+	option ifname 'ra0'
+	option encryption 'psk2'
+	option key '12345678'
+	option ssid 'zze-wifi-gw'
+	option hidden '0'
+
+#终端模式，相当作为手机去连接wifi	
+config wifi-iface 'sta'
+	option device 'radio0'
+	option mode 'sta'
+	option network 'wwan'
+	option ifname 'apcli0'
+	option ssid 'UplinkAp' #wifi名称
+	option key 'SecretKey' #wifi密码
+	option disabled '1'
+
